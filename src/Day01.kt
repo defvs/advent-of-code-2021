@@ -14,7 +14,7 @@ fun main() {
 	
 	fun part2(input: List<String>) =
 		input.map { it.toInt() }
-			.zipWithMultipleNext().map { it.sum() }
+			.windowed(3) { it.sum() }
 			.zipWithNext()
 			.count { it.second > it.first }
 	
