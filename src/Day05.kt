@@ -6,11 +6,6 @@ data class Vent(
 	val y: List<Int>,
 ) {
 	companion object Constructor {
-/*		fun fromString(string: String) =
-			string.split("->")
-				.map { s -> s.trim().split(",").map { it.toInt() } }
-				.let { Vent(it[0][0] toward it[1][0], it[0][1] toward it[1][1]) }*/
-		
 		fun fromString(string: String) =
 			string.split("->")
 				.map { s -> s.trim().split(",").map { it.toInt() } }
