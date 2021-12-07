@@ -17,7 +17,7 @@ fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest
 /**
  * Print this [Int]
  */
-fun Int.println() = println(this)
+fun Any.println() = println(this)
 
 /**
  * Transpose a 2D Array
@@ -48,3 +48,6 @@ inline fun <reified T> Collection<T>.padWith(finalSize: Int, value: T): MutableC
 	val amount = (finalSize - size).coerceAtLeast(0)
 	addAll(Array(amount) { value })
 }
+
+fun <T> Array<T>.rotate(n: Int) =
+	let { sliceArray(n until size) + sliceArray(0 until n) }
