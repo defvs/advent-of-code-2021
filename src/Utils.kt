@@ -33,3 +33,18 @@ fun <T> List<List<T>>.transpose(): List<List<T>> {
 	}
 	return ret
 }
+
+fun Array<Array<Int>>.displayString() = joinToString("\n") { row ->
+	row.joinToString(" ") { col ->
+		col.toString().padStart(2)
+	}
+}
+
+infix fun Int.toward(to: Int): IntProgression {
+	return if (to > this) this..to else this downTo to
+}
+
+inline fun <reified T> Collection<T>.padWith(finalSize: Int, value: T): MutableCollection<T> = this.toMutableList().apply {
+	val amount = (finalSize - size).coerceAtLeast(0)
+	addAll(Array(amount) { value })
+}
